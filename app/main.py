@@ -2,7 +2,6 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 from app.api.routers import profile, skills, talks, projects
 
@@ -49,11 +48,6 @@ of FastAPI best practices.
     docs_url="/docs",
     openapi_url="/openapi.json"
 )
-
-# Force HTTPS redirect in production
-import os
-if os.getenv("RAILWAY_ENVIRONMENT_NAME"):  # Only in Railway
-    app.add_middleware(HTTPSRedirectMiddleware)
 
 # Add CORS middleware for public access
 app.add_middleware(
