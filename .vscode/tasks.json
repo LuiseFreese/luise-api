@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start FastAPI Server",
+			"type": "shell",
+			"command": "python -m uvicorn app.main:app --reload --port 8000",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Start FastAPI Server",
+			"type": "shell",
+			"command": "python -m uvicorn app.main:app --reload --port 8000",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Run API Server",
+			"type": "shell",
+			"command": "python start.py",
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}

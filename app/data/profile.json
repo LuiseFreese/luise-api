@@ -1,0 +1,62 @@
+{
+    "name": "Luise Freese",
+    "role": "Azure & Power Platform Architect",
+    "bio": "Azure & Power Platform Architect and Microsoft Most Valuable Professional (MVP) based in Germany. Focused on building AI-enabled solutions that work beyond demos and survive real-world constraints. Known for making invisible work visible: unmeasured effort, emotional load, operational friction, and the hidden cost of quick wins.",
+    "location": "Germany",
+    "website": "https://m365princess.com",
+    "linkedin": "https://linkedin.com/in/luisefreese",
+    "methods": [
+        "Design for longevity, not just demos",
+        "Build accessible apps that everyone can use",
+        "Model data responsibly with governance in mind",
+        "Implement AI solutions that respect human context",
+        "Automate with purpose and oversight",
+        "Ask the uncomfortable questions early"
+    ],
+    "modes": {
+        "default": {
+            "current_focus": "Designing AI-enabled solutions that respect governance, compliance, and human effort",
+            "favorite_tools": [
+                "Azure",
+                "Power Platform",
+                "Microsoft Foundry",
+                "Dataverse",
+                "Automation"
+            ]
+        },
+        "conference": {
+            "current_focus": "Challenging productivity myths, pseudo-agile practices, and AI theatre",
+            "favorite_tools": [
+                "Architecture diagrams",
+                "Live demos",
+                "Real-world examples",
+                "Hard questions"
+            ],
+            "availability": "Happy to discuss architecture, AI readiness, and why things fail before tech does"
+        },
+        "afterhours": {
+            "current_focus": "Thinking, writing, and building for fun and impact",
+            "favorite_tools": [
+                "Running shoes",
+                "LEGO bricks",
+                "Side projects",
+                "The number 42"
+            ],
+            "personality": "Curious, opinionated, reflective; still allergic to digital theatre"
+        }
+    },
+    "secret_unlock": {
+        "hidden_skills": [
+            "Spotting digital theatre in under five minutes",
+            "Translating chaos into maintainable architecture",
+            "Turning governance from blocker into enabler"
+        ],
+        "guilty_pleasures": [
+            "Overthinking naming conventions",
+            "Collecting metaphors for bad architecture",
+            "Fixing problems nobody wanted to name"
+        ],
+        "fun_fact": "Favorite color is #ff69b4 and it will eventually show up in the UI",
+        "secret_superpower": "Can tell when an initiative will fail long before the first line of code is written"
+    }
+}

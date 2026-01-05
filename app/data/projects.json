@@ -1,0 +1,149 @@
+[
+    {
+        "id": "espc25-smart-support-agent",
+        "name": "ESPC25 Smart Support Agent",
+        "description": "A comprehensive Azure Microsoft smart support system featuring 8 progressive demos from keyword classification to cloud-hosted multi-agent orchestration. Event-driven IT support automation that processes emails, classifies them, searches knowledge bases, and automatically responds or escalates based on AI confidence scores. Includes voice interaction, multimodal capabilities, and enterprise integration with Microsoft Graph and Azure Communication Services.",
+        "status": "Active Development",
+        "tech_stack": [
+            "Azure Microsoft",
+            "Azure OpenAI GPT-5.1-chat",
+            "Azure AI Search",
+            "Azure Functions",
+            "Node.js 20",
+            "Python 3.11",
+            "TypeScript",
+            "React",
+            "Fluent UI v9",
+            "Azure Container Apps",
+            "Docker",
+            "FFmpeg",
+            "Azure Speech Services",
+            "Table Storage",
+            "Application Insights",
+            "Azure Communication Services",
+            "Microsoft Graph API",
+            "Azure Bicep"
+        ],
+        "github_url": "https://github.com/LuiseFreese/espc25-smart-support-agent",
+        "demo_url": null,
+        "highlights": [
+            "8 progressive demos showcasing enterprise AI capabilities",
+            "Event-driven email processing with Microsoft Graph webhooks",
+            "Multi-agent orchestration with specialized agents (Triage, FAQ, RAG, Ticket)",
+            "Voice interaction with Speech-to-Text and Text-to-Speech",
+            "Multimodal support with GPT vision capabilities",
+            "Auto-scaling Azure Container Apps deployment",
+            "Enterprise security with Managed Identity and RBAC",
+            "Copilot Studio integration with custom plugins",
+            "One-command deployment with comprehensive automation"
+        ]
+    },
+    {
+        "id": "mermaid-to-dataverse-converter",
+        "name": "Mermaid to Dataverse Converter",
+        "description": "A modern React-based Azure App Service application that converts Mermaid ERD diagrams into Microsoft Dataverse entities, columns, and relationships. Features a wizard-based interface with real-time validation, CDM integration, and enterprise-grade security with managed identity authentication. Supports multi-environment deployment and comprehensive deployment history with rollback capabilities.",
+        "status": "Active Development",
+        "tech_stack": [
+            "React 18",
+            "TypeScript",
+            "Fluent UI v9",
+            "Node.js",
+            "Azure App Service",
+            "Managed Identity",
+            "Azure Bicep",
+            "Dataverse API",
+            "Vite"
+        ],
+        "github_url": "https://github.com/LuiseFreese/mermaid",
+        "demo_url": null,
+        "highlights": [
+            "Modern React wizard interface with step-by-step deployment",
+            "Real-time ERD validation with auto-correction",
+            "Enterprise security with managed identity and federated credentials",
+            "Multi-environment support (dev/test/prod) with dynamic selection",
+            "Azure Blob Storage for persistent deployment history",
+            "CDM integration with automatic entity detection"
+        ]
+    },
+    {
+        "id": "bluesky-terminal-poster",
+        "name": "BlueSky Terminal Poster",
+        "description": "A Python terminal application that allows users to post text, images, @mentions, and alt text directly to Bluesky social network. Supports image attachments up to 1MB with accessibility features, @mention resolution with DID references, and environment variable configuration for secure authentication.",
+        "status": "Stable",
+        "tech_stack": [
+            "Python",
+            "Bluesky API",
+            "Requests",
+            "Environment Variables"
+        ],
+        "github_url": "https://github.com/LuiseFreese/BlueSkyTerminal",
+        "demo_url": null,
+        "highlights": [
+            "Direct posting to Bluesky from terminal interface",
+            "@Mention support with automatic DID resolution",
+            "Image attachment support with accessibility alt text",
+            "Secure authentication using environment variables",
+            "Simple and lightweight Python implementation"
+        ]
+    },
+    {
+        "id": "pnp-blog-contributions",
+        "name": "Microsoft 365 PnP Blog Contributions",
+        "description": "Active contribution to the Microsoft 365 Patterns and Practices community blog, sharing knowledge about M365 development, Power Platform, and Azure solutions. As a member of the M365 PnP team, regularly publishing technical articles, tutorials, and best practices for the developer community.",
+        "status": "Ongoing",
+        "tech_stack": [
+            "HTML",
+            "Markdown",
+            "GitHub",
+            "Community Management"
+        ],
+        "github_url": "https://github.com/pnp/blog",
+        "demo_url": "https://pnp.github.io/blog/",
+        "highlights": [
+            "Regular technical content contributor to M365 PnP community",
+            "Sharing expertise in Power Platform and Azure architecture",
+            "Community collaboration and knowledge sharing",
+            "Supporting developer community with practical guidance"
+        ]
+    },
+    {
+        "id": "fluent-ui-teams",
+        "name": "FluentUI for Teams",
+        "description": "Resources and components for implementing Microsoft's Fluent UI design system within Teams applications. Focused on providing developers with practical examples and patterns for creating consistent, accessible user interfaces in the Microsoft ecosystem.",
+        "status": "Maintenance Mode",
+        "tech_stack": [
+            "Fluent UI",
+            "Microsoft Teams",
+            "TypeScript",
+            "React"
+        ],
+        "github_url": "https://github.com/LuiseFreese/FluentUI-for-Teams",
+        "demo_url": null,
+        "highlights": [
+            "Fluent UI implementation patterns for Teams",
+            "Design system consistency across Microsoft platforms",
+            "Developer resource collection",
+            "UI/UX best practices for Teams applications"
+        ]
+    },
+    {
+        "id": "svg-to-sharepoint-converter",
+        "name": "SVG to SharePoint Converter",
+        "description": "A utility tool for converting SVG graphics for optimal use in SharePoint environments. Addresses common compatibility issues and provides optimized SVG output that works seamlessly with SharePoint's rendering engine and modern web parts.",
+        "status": "Stable",
+        "tech_stack": [
+            "JavaScript",
+            "SVG",
+            "SharePoint",
+            "Web Development"
+        ],
+        "github_url": "https://github.com/LuiseFreese/svg-to-SP-converter",
+        "demo_url": null,
+        "highlights": [
+            "SharePoint-optimized SVG conversion",
+            "Compatibility with SharePoint rendering engine",
+            "Web part integration support",
+            "Graphics optimization for SharePoint environments"
+        ]
+    }
+]

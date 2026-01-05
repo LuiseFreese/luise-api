@@ -1,0 +1,118 @@
+[
+  {
+    "id": "deploy-on-fridays-bonanni-2026",
+    "title": "Let's deploy on Fridays!",
+    "description": "Your team sticks to the Friday-freeze-policy? This is super common, but also it gives a certain smell. A smell of low delivery confidence and of low trust in your processes around Testing, QA and rollback. This session won't make you suddenly trust your bubblegum-and-duct-taped delivery pipeline but aims at stripping away the superstition and look at what's really broken when teams are too scared to ship. We'll dig into the real indicators of healthy delivery, like deployment frequency, lead time, change failure rate, recovery time, and why they matter more than any velocity chart ever will.",
+    "year": 2026,
+    "venue": "Bonanni a tutti, Turin",
+    "topics": [
+      "DevOps",
+      "Deployment",
+      "CI/CD",
+      "Testing",
+      "QA",
+      "Delivery Metrics",
+      "Team Culture"
+    ]
+  },
+  {
+    "id": "power-platform-ai-sharepoint-espc25",
+    "title": "Getting started with Power Platform & AI on SharePoint",
+    "description": "SharePoint is the backbone of collaboration in Microsoft 365, and with the Power Platform, you can take it to the next level: Build custom apps and automate processes to make work easier. In this tutorial Luise and Robin walk through the essentials of Power Apps Canvas Apps and Power Automate Cloud Flows, using SharePoint lists and libraries as foundation. Plus an introduction to AI Builder and Copilot Studio, showing how AI can help automate repetitive tasks and create chat-based experiences.",
+    "year": 2025,
+    "venue": "ESPC25, Dublin",
+    "topics": [
+      "Power Platform",
+      "SharePoint",
+      "Power Apps",
+      "Power Automate",
+      "AI Builder",
+      "Copilot Studio"
+    ]
+  },
+  {
+    "id": "azure-ai-foundry-agents-espc25",
+    "title": "Building smart agents with Azure Microsoft",
+    "description": "AI solutions often rely on OpenAI models, but what if you need more flexibility? Different models, custom options, and seamless integration: This is where Azure Microsoft comes in. Luise and Fabian show how to build smart AI agents that go beyond a single model, giving you more control and customization. Learn how to create and deploy AI solutions with Azure Microsoft and even integrate them with Copilot to bring your use case to life.",
+    "year": 2025,
+    "venue": "ESPC25, Dublin",
+    "topics": [
+      "Azure Microsoft",
+      "AI Agents",
+      "Machine Learning",
+      "Copilot",
+      "OpenAI"
+    ]
+  },
+  {
+    "id": "testing-strategy-codemotion-2025",
+    "title": "Your Testing Strategy is broken - lets fix it!",
+    "description": "Testing is essential for delivering reliable software, but too often, teams fall into the trap of testing everything and testing it poorly. Endless unit tests for trivial code create a false sense of security while ignoring the areas that matter most; like how your system behaves when it really counts. This session takes a hard look at what makes a good testing strategy. Instead of chasing meaningless metrics like 100% coverage, learn how to test behaviors, focus on integration points, and embrace a leaner, smarter approach to quality assurance.",
+    "year": 2025,
+    "venue": "Codemotion 2025, Milan",
+    "topics": [
+      "Testing",
+      "Quality Assurance",
+      "Software Engineering",
+      "Best Practices"
+    ]
+  },
+  {
+    "id": "testing-strategy-wearedevelopers-2025",
+    "title": "Your Testing Strategy is broken - lets fix it!",
+    "description": "Testing is essential for delivering reliable software, but too often, teams fall into the trap of testing everything and testing it poorly. Endless unit tests for trivial code create a false sense of security while ignoring the areas that matter most—like how your system behaves when it really counts. This session takes a hard look at what makes a good testing strategy. Instead of chasing meaningless metrics like 100% coverage, learn how to test behaviors, focus on integration points, and embrace a leaner, smarter approach to quality assurance.",
+    "year": 2025,
+    "venue": "WeAreDevelopers World Congress 2025, Berlin",
+    "topics": [
+      "Testing",
+      "Quality Assurance",
+      "Software Engineering",
+      "Best Practices"
+    ]
+  },
+  {
+    "id": "power-apps-canvas-ai-fluent-eppc25",
+    "title": "Next-Gen Power Apps: Mastering Canvas, AI, and Fluent UI",
+    "description": "Get ready for a full day of hands-on learning! This workshop is all about pushing the boundaries of Canvas app development, incorporating the latest in AI and automation. Building modern, sleek Canvas apps that work flawlessly across devices, applying Fluent UI 2 principles for intuitive, visually appealing interfaces, creating highly responsive and accessible apps for all users, integrating Plan Builder and AI prompts to supercharge your development process and apps, creating reusable custom components for consistent development, and blending Canvas and Model-driven apps for robust, enterprise-ready solutions.",
+    "year": 2025,
+    "venue": "EPPC25, Vienna",
+    "topics": [
+      "Power Apps",
+      "Canvas Apps",
+      "Fluent UI",
+      "AI",
+      "Accessibility",
+      "Enterprise Development"
+    ]
+  },
+  {
+    "id": "playwright-power-apps-devops-eppc25",
+    "title": "Integrate Playwright tests for Power Apps into your DevOps process",
+    "description": "Are you tired of Power Platform solutions that feel like they are being held together by duct tape and bubble gum? You're not alone. Luise and Elio discuss why proper testing is often overlooked in Power Apps development and how we can change that game. Introduction to Playwright for automated testing and why it's a perfect match for Power Apps. We'll cover the essentials of making your apps test-friendly and walk through some common tests to get you started. Plus how to take your testing to the next level by automating the process and seamlessly integrating it into your development pipeline.",
+    "year": 2025,
+    "venue": "EPPC25, Vienna",
+    "topics": [
+      "Playwright",
+      "Power Apps",
+      "DevOps",
+      "Testing",
+      "Automation",
+      "CI/CD"
+    ]
+  },
+  {
+    "id": "devops-power-platform-alm-2025",
+    "title": "How to get from Dev?! Oooops! to proper DevOps",
+    "description": "Join Luise as she dives into Application Lifecycle Management (ALM) for Power Platform solutions, making the case for why Azure DevOps is a game-changer for managing low-code projects. She'll tackle the big no-nos like sticking to a one-environment strategy, skipping source control, and the manual slog of build processes. Learn how these common mistakes can make your solutions a moving target for users and a nightmare of irreversible changes for developers. Discover how to keep your projects stable and stress-free by smartly using source control, creating clear boundaries between development environments, and automating build and deployment routines.",
+    "year": 2025,
+    "venue": "Azure Community Day Köln x Global Azure 2025",
+    "topics": [
+      "DevOps",
+      "Power Platform",
+      "ALM",
+      "Azure DevOps",
+      "Source Control",
+      "Deployment"
+    ]
+  }
+]

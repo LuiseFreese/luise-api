@@ -1,0 +1,51 @@
+{
+    "general": [
+        {
+            "text": "It depends... but usually the answer is caching.",
+            "topic": "general",
+            "context": "The universal truth of software development"
+        },
+        {
+            "text": "Have you tried turning it off and on again? But for APIs.",
+            "topic": "general",
+            "context": "Sometimes the classics work best"
+        },
+        {
+            "text": "There are only two hard things in computer science: cache invalidation and naming things... and off-by-one errors.",
+            "topic": "general",
+            "context": "The eternal struggle of developers everywhere"
+        }
+    ],
+    "ai": [
+        {
+            "text": "Most AI pilots don’t fail because of the tech; they fail because preparation never happened.",
+            "topic": "ai",
+            "context": "Real world AI success depends on clarity of goals and readiness, not just models and demos."
+        },
+        {
+            "text": "Start with the problem you want to solve; don’t start with the coolest model you can find.",
+            "topic": "ai",
+            "context": "AI projects that lead with purpose outperform those that lead with hype."
+        },
+        {
+            "text": "AI lowers the cost of mediocrity; it doesn’t raise the bar by itself.",
+            "topic": "ai",
+            "context": "Cheap output isn’t the same as valuable output; tooling alone isn’t enough."
+        },
+        {
+            "text": "AI isn’t a feature; it’s a system that has to be durable, maintainable, and accountable.",
+            "topic": "ai",
+            "context": "Treat AI as long-term capability; avoid throwaway prototypes that vanish after the demo."
+        },
+        {
+            "text": "Don’t treat autonomy as chaos; define clearly what happens when AI gets it wrong.",
+            "topic": "ai",
+            "context": "Designing autonomous systems requires explicit rules for failure cases and oversight."
+        },
+        {
+            "text": "Choosing the right custom model is about fit, not buzzwords.",
+            "topic": "ai",
+            "context": "Use Azure Microsoft to connect models that are actually suitable for your use case."
+        }
+    ]
+}

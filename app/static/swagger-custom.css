@@ -1,0 +1,270 @@
+/* Custom Pink-themed Swagger UI CSS */
+
+/* Main color scheme - pink and purple tones */
+:root {
+  --pink-primary: #ff69b4;
+  --pink-secondary: #ff1493;
+  --pink-dark: #dc143c;
+  --pink-light: #ffb6c1;
+  --pink-pale: #ffe4e1;
+  --text-dark: #2c2c2c;
+  --text-light: #666666;
+  --border-color: #ff69b4;
+}
+
+/* Overall theme adjustments */
+.swagger-ui {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+}
+
+/* Top bar styling */
+.swagger-ui .topbar {
+  background: linear-gradient(135deg, var(--pink-primary), var(--pink-secondary), var(--pink-dark)) !important;
+  border-bottom: 3px solid var(--pink-dark);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.swagger-ui .topbar .download-url-wrapper {
+  display: none;
+}
+
+/* Custom title in topbar */
+.swagger-ui .topbar::before {
+  content: "🚀 Luise API - REST with Personality";
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 15px 20px;
+  display: block;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* API info section */
+.swagger-ui .info {
+  margin: 30px 0;
+}
+
+.swagger-ui .info .title {
+  color: var(--pink-dark);
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(220, 20, 60, 0.2);
+}
+
+.swagger-ui .info .description p {
+  color: var(--text-dark);
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* Operation blocks */
+.swagger-ui .opblock {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.swagger-ui .opblock:hover {
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.2);
+  transform: translateY(-2px);
+}
+
+/* HTTP method colors with pink theme */
+.swagger-ui .opblock.opblock-get {
+  border-color: var(--pink-primary);
+  background: linear-gradient(135deg, #ffffff, #ffeef5);
+}
+
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+  background: var(--pink-primary);
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Tags (endpoint groups) */
+.swagger-ui .opblock-tag {
+  color: var(--pink-dark);
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 40px 0 20px 0;
+  padding: 15px 0;
+  border-bottom: 3px solid var(--pink-primary);
+  background: linear-gradient(135deg, transparent, rgba(255, 105, 180, 0.1));
+  padding-left: 20px;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Try it out button */
+.swagger-ui .btn.try-out__btn {
+  background: var(--pink-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+.swagger-ui .btn.try-out__btn:hover {
+  background: var(--pink-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 20, 147, 0.4);
+}
+
+/* Execute button */
+.swagger-ui .btn.execute {
+  background: var(--pink-secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(255, 20, 147, 0.3);
+}
+
+.swagger-ui .btn.execute:hover {
+  background: var(--pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 20, 60, 0.4);
+}
+
+/* Response section */
+.swagger-ui .responses-inner {
+  border: 2px solid var(--pink-light);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ffffff, #fff5f8);
+}
+
+/* Status codes */
+.swagger-ui .response-col_status {
+  color: var(--pink-dark);
+  font-weight: bold;
+}
+
+/* Models section */
+.swagger-ui .model-box {
+  background: linear-gradient(135deg, #ffffff, #fff0f5);
+  border: 2px solid var(--pink-light);
+  border-radius: 8px;
+}
+
+.swagger-ui .model .model-title {
+  color: var(--pink-dark);
+  font-weight: bold;
+}
+
+/* Parameter inputs */
+.swagger-ui .parameter__name {
+  color: var(--pink-dark);
+  font-weight: bold;
+}
+
+.swagger-ui input[type="text"],
+.swagger-ui input[type="number"],
+.swagger-ui textarea,
+.swagger-ui select {
+  border: 2px solid var(--pink-light);
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: border-color 0.3s ease;
+}
+
+.swagger-ui input[type="text"]:focus,
+.swagger-ui input[type="number"]:focus,
+.swagger-ui textarea:focus,
+.swagger-ui select:focus {
+  border-color: var(--pink-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+}
+
+/* Response highlighting */
+.swagger-ui .highlight-code {
+  background: #fff5f8;
+  border: 2px solid var(--pink-light);
+  border-radius: 8px;
+}
+
+/* Clear button */
+.swagger-ui .btn.clear {
+  background: transparent;
+  color: var(--pink-dark);
+  border: 2px solid var(--pink-light);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.swagger-ui .btn.clear:hover {
+  background: var(--pink-light);
+  color: var(--text-dark);
+}
+
+/* Error responses */
+.swagger-ui .response.error {
+  border-color: #ff6b6b;
+}
+
+/* Success responses */
+.swagger-ui .response.success {
+  border-color: var(--pink-primary);
+}
+
+/* Add some playful animations */
+@keyframes pulse-pink {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 105, 180, 0);
+  }
+}
+
+.swagger-ui .btn.execute:active {
+  animation: pulse-pink 0.6s ease-out;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-secondary);
+}
+
+/* Footer styling */
+.swagger-ui .scheme-container {
+  background: linear-gradient(135deg, var(--pink-pale), #ffffff);
+  border: 2px solid var(--pink-light);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* Add a subtle pink glow to the whole container */
+.swagger-ui .swagger-container {
+  background: linear-gradient(135deg, #ffffff, #fefeff, #fff8fa);
+  min-height: 100vh;
+}
+
+/* Custom styling for easter egg responses */
+.swagger-ui .response[data-code="418"] {
+  border: 3px solid var(--pink-primary);
+  background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+  animation: pulse-pink 2s infinite;
+}

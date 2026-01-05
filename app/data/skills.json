@@ -1,0 +1,216 @@
+[
+    {
+        "id": "azure-architecture",
+        "name": "Azure Solutions Architecture",
+        "level": "Advanced",
+        "domain": "Cloud",
+        "tags": [
+            "azure",
+            "cloud-architecture",
+            "integration",
+            "governance"
+        ],
+        "examples": [
+            "Cross-cloud integrations",
+            "Azure Functions",
+            "Managed Identity",
+            "Token management",
+            "Enterprise solutions"
+        ]
+    },
+    {
+        "id": "power-platform",
+        "name": "Power Platform Development",
+        "level": "Advanced",
+        "domain": "Low-Code",
+        "tags": [
+            "power-apps",
+            "power-automate",
+            "dataverse",
+            "canvas-apps",
+            "model-driven"
+        ],
+        "examples": [
+            "Canvas Apps",
+            "Power Automate Flows",
+            "Dataverse solutions",
+            "Custom connectors",
+            "Enterprise app development"
+        ]
+    },
+    {
+        "id": "m365",
+        "name": "Microsoft 365 Development",
+        "level": "Advanced",
+        "domain": "Collaboration",
+        "tags": [
+            "sharepoint",
+            "teams",
+            "graph-api",
+            "m365",
+            "governance"
+        ],
+        "examples": [
+            "SharePoint solutions",
+            "Microsoft Graph integrations",
+            "Teams apps",
+            "M365 governance frameworks"
+        ]
+    },
+    {
+        "id": "ai",
+        "name": "AI Solution Architecture",
+        "level": "Advanced",
+        "domain": "AI",
+        "tags": [
+            "azure-ai-foundry",
+            "ai-builder",
+            "copilot-studio",
+            "llm",
+            "machine-learning"
+        ],
+        "examples": [
+            "Ticket classification systems",
+            "AI-powered automation",
+            "Custom AI agents",
+            "Vector similarity",
+            "LLM validation"
+        ]
+    },
+    {
+        "id": "governance",
+        "name": "Governance & Compliance",
+        "level": "Advanced",
+        "domain": "Security",
+        "tags": [
+            "governance",
+            "compliance",
+            "security",
+            "enterprise-controls",
+            "policy"
+        ],
+        "examples": [
+            "Power Platform governance",
+            "Security frameworks",
+            "Compliance automation",
+            "Enterprise controls",
+            "Regulatory standards"
+        ]
+    },
+    {
+        "id": "devops",
+        "name": "DevOps & Application Lifecycle Management",
+        "level": "Advanced",
+        "domain": "DevOps",
+        "tags": [
+            "azure-devops",
+            "ci/cd",
+            "alm",
+            "deployment",
+            "source-control"
+        ],
+        "examples": [
+            "Azure DevOps pipelines",
+            "Power Platform ALM",
+            "Automated deployments",
+            "Source control strategies",
+            "Build automation"
+        ]
+    },
+    {
+        "id": "testing",
+        "name": "Testing & Quality Assurance",
+        "level": "Advanced",
+        "domain": "Quality",
+        "tags": [
+            "playwright",
+            "automated-testing",
+            "testing-strategy",
+            "quality-assurance"
+        ],
+        "examples": [
+            "Playwright testing for Power Apps",
+            "Testing strategy design",
+            "Integration testing",
+            "DevOps test integration",
+            "Quality frameworks"
+        ]
+    },
+    {
+        "id": "architecture",
+        "name": "Enterprise Solution Architecture",
+        "level": "Advanced",
+        "domain": "Architecture",
+        "tags": [
+            "enterprise-architecture",
+            "integration-patterns",
+            "scalability",
+            "business-alignment"
+        ],
+        "examples": [
+            "Cross-platform solutions",
+            "Integration architecture",
+            "Scalable enterprise apps",
+            "Business process automation",
+            "Technical strategy"
+        ]
+    },
+    {
+        "id": "open-source",
+        "name": "Open Source Development",
+        "level": "Intermediate",
+        "domain": "Development",
+        "tags": [
+            "github",
+            "open-source",
+            "community",
+            "tools",
+            "mermaid"
+        ],
+        "examples": [
+            "Mermaid to Dataverse Converter",
+            "Community tools",
+            "GitHub contributions",
+            "Developer productivity tools"
+        ]
+    },
+    {
+        "id": "business-psychology",
+        "name": "Business Psychology & Strategy",
+        "level": "Advanced",
+        "domain": "Strategy",
+        "tags": [
+            "business-psychology",
+            "organizational-behavior",
+            "decision-making",
+            "change-management"
+        ],
+        "examples": [
+            "Organizational strategy",
+            "User adoption",
+            "Change management",
+            "Business alignment",
+            "Stakeholder engagement"
+        ]
+    },
+    {
+        "id": "ai-solutions",
+        "name": "AI Solutions Development",
+        "level": "Advanced",
+        "domain": "AI",
+        "tags": [
+            "azure-ai",
+            "openai",
+            "machine-learning",
+            "prompt-engineering",
+            "ai-governance"
+        ],
+        "examples": [
+            "Multi-agent orchestration",
+            "RAG implementations",
+            "AI model integration",
+            "Prompt optimization",
+            "AI safety and governance"
+        ]
+    }
+]
