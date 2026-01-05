@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 from app.api.routers import profile, skills, talks, projects
 
@@ -49,10 +50,20 @@ of FastAPI best practices.
     openapi_url="/openapi.json"
 )
 
+# Force HTTPS redirect in production
+import os
+if os.getenv("RAILWAY_ENVIRONMENT_NAME"):  # Only in Railway
+    app.add_middleware(HTTPSRedirectMiddleware)
+
 # Add CORS middleware for public access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, restrict to your domains
+    allow_origins=[
+        "https://m365princess.com",
+        "https://www.m365princess.com",
+        "https://api.m365princess.com",
+        "*"  # Remove this in production for better security
+    ],
     allow_credentials=True,
     allow_methods=["GET"],  # Only allowing GET since this is read-only API
     allow_headers=["*"],

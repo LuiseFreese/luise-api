@@ -181,4 +181,4 @@ MIT License - feel free to use this code as inspiration for your own projects!
 
 ---
 
-**Built with ❤️ and way too much coffee** ☕
+**Built with ❤️ **

@@ -118,17 +118,6 @@ class TalksList(BaseModel):
     total: int
 
 
-class TalkQuestion(BaseModel):
-    name: str
-    question: str
-
-
-class TalkQuestionResponse(BaseModel):
-    id: str
-    message: str
-    talk_id: str
-
-
 class Project(BaseModel):
     id: str
     name: str
