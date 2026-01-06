@@ -120,6 +120,63 @@ def test_talks_filter_nonexistent_year():
     assert data["total"] == 0
 
 
+def test_submit_talk_question():
+    """Test submitting a question for an existing talk."""
+    # First get all talks to find a valid talk ID
+    talks_response = client.get("/talks")
+    talks_data = talks_response.json()
+    assert len(talks_data["talks"]) > 0
+    
+    talk_id = talks_data["talks"][0]["id"]
+    
+    question_data = {
+        "name": "Test User",
+        "email": "test@example.com",
+        "question": "This is a test question about your talk. How do you handle edge cases?"
+    }
+    
+    response = client.post(f"/talks/{talk_id}/questions", json=question_data)
+    assert response.status_code == 200
+    data = response.json()
+    
+    assert "id" in data
+    assert "message" in data
+    assert "talk_id" in data
+    assert "status" in data
+    assert data["talk_id"] == talk_id
+    assert data["status"] == "received"
+
+
+def test_submit_question_invalid_talk():
+    """Test submitting a question for a non-existent talk returns 404."""
+    question_data = {
+        "name": "Test User", 
+        "email": "test@example.com",
+        "question": "This is a test question."
+    }
+    
+    response = client.post("/talks/nonexistent-talk/questions", json=question_data)
+    assert response.status_code == 404
+    data = response.json()
+    assert "detail" in data
+
+
+def test_submit_question_validation():
+    """Test question validation requirements."""
+    # Test missing required fields
+    response = client.post("/talks/any-talk/questions", json={})
+    assert response.status_code == 422
+    
+    # Test short question (less than 10 characters)
+    short_question = {
+        "name": "Test User",
+        "email": "test@example.com", 
+        "question": "Too short"
+    }
+    response = client.post("/talks/any-talk/questions", json=short_question)
+    assert response.status_code == 422
+
+
 def test_projects_get_all():
     """Test getting all projects."""
     response = client.get("/projects")

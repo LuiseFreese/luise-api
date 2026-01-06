@@ -59,7 +59,7 @@ app.add_middleware(
         "*"  # Remove this in production for better security
     ],
     allow_credentials=True,
-    allow_methods=["GET"],  # Only allowing GET since this is read-only API
+    allow_methods=["GET", "POST"],  # Now allowing POST for talk questions
     allow_headers=["*"],
 )
 

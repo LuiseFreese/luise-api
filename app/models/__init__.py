@@ -118,6 +118,40 @@ class TalksList(BaseModel):
     total: int
 
 
+class TalkQuestion(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "name": "Alex Developer",
+                "email": "alex@example.com",
+                "question": "How do you handle CI/CD rollbacks when deployments fail on Fridays?"
+            }
+        }
+    )
+    
+    name: str
+    email: str = Field(..., description="Email address for follow-up")
+    question: str = Field(..., min_length=10, description="Your question about this talk")
+
+
+class TalkQuestionResponse(BaseModel):
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "id": "q_12345",
+                "message": "Thanks for your question, I'll answer this soon!",
+                "talk_id": "deploy-on-fridays-bonanni-2026",
+                "status": "received"
+            }
+        }
+    )
+    
+    id: str
+    message: str
+    talk_id: str
+    status: str
+
+
 class Project(BaseModel):
     id: str
     name: str

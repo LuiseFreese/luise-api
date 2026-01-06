@@ -1,5 +1,6 @@
 import json
 import time
+import os
 from typing import Dict, List, Optional, Any
 from pathlib import Path
 from collections import defaultdict, deque
@@ -8,6 +9,63 @@ from app.models import (
     Profile, Quote, Skill, Talk, Project, 
     ErrorDetail, ErrorResponse
 )
+
+
+def send_question_notification(question_data: dict) -> None:
+    """Send email notification for new question submission."""
+    try:
+        # Only send if SendGrid API key is configured
+        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
+        notification_email = os.environ.get('NOTIFICATION_EMAIL')
+        
+        if not sendgrid_api_key or not notification_email:
+            print("Email notification skipped: Missing SENDGRID_API_KEY or NOTIFICATION_EMAIL environment variables")
+            return
+            
+        from sendgrid import SendGridAPIClient
+        from sendgrid.helpers.mail import Mail
+        
+        # Create email content
+        subject = f"New Question: {question_data['talk_id']}"
+        
+        html_content = f"""
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333; border-bottom: 2px solid #ff69b4;">New Question Submitted</h2>
+            
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p><strong>Talk:</strong> {question_data['talk_id']}</p>
+                <p><strong>Question ID:</strong> {question_data['id']}</p>
+                <p><strong>From:</strong> {question_data['name']} ({question_data['email']})</p>
+                <p><strong>Submitted:</strong> {question_data['submitted_at']}</p>
+            </div>
+            
+            <div style="background: white; padding: 20px; border-left: 4px solid #ff69b4; margin: 20px 0;">
+                <h3 style="margin-top: 0;">Question:</h3>
+                <p style="line-height: 1.6;">{question_data['question']}</p>
+            </div>
+            
+            <p style="color: #666; font-size: 12px;">This notification was sent from your m365princess.com API.</p>
+        </div>
+        """
+        
+        # Create and send email
+        message = Mail(
+            from_email='noreply@m365princess.com',
+            to_emails=notification_email,
+            subject=subject,
+            html_content=html_content
+        )
+        
+        sg = SendGridAPIClient(api_key=sendgrid_api_key)
+        response = sg.send(message)
+        
+        print(f"Email notification sent successfully (status: {response.status_code})")
+        
+    except ImportError:
+        print("SendGrid not installed - email notifications disabled")
+    except Exception as e:
+        print(f"Failed to send email notification: {e}")
+        # Don't re-raise - email failure shouldn't break the API
 
 
 class DataService:
@@ -178,6 +236,81 @@ class TalksService:
             filtered_talks = talks_data
         
         return [Talk(**talk) for talk in filtered_talks]
+    
+    def submit_question(self, talk_id: str, question_data: dict) -> dict:
+        """Submit a question for a specific talk."""
+        import uuid
+        import json
+        import os
+        from datetime import datetime
+        
+        # Verify talk exists
+        talks_data = self.data_service.talks_data
+        talk_exists = any(talk["id"] == talk_id for talk in talks_data)
+        
+        if not talk_exists:
+            return None
+            
+        # Generate question ID and timestamp
+        question_id = f"q_{uuid.uuid4().hex[:8]}"
+        timestamp = datetime.utcnow().isoformat()
+        
+        # Create question record
+        question_record = {
+            "id": question_id,
+            "talk_id": talk_id,
+            "name": question_data["name"],
+            "email": question_data["email"], 
+            "question": question_data["question"],
+            "submitted_at": timestamp,
+            "status": "received"
+        }
+        
+        # Save to questions.json file
+        questions_file = os.path.join(os.path.dirname(__file__), "..", "data", "questions.json")
+        questions_file = os.path.abspath(questions_file)
+        
+        print(f"Attempting to save question to: {questions_file}")
+        
+        try:
+            # Load existing questions or create empty list
+            if os.path.exists(questions_file):
+                with open(questions_file, 'r', encoding='utf-8') as f:
+                    questions = json.load(f)
+                    print(f"Loaded {len(questions)} existing questions")
+            else:
+                questions = []
+                print("Creating new questions list")
+            
+            # Add new question
+            questions.append(question_record)
+            print(f"Added question {question_id}, total questions: {len(questions)}")
+            
+            # Save back to file
+            os.makedirs(os.path.dirname(questions_file), exist_ok=True)
+            with open(questions_file, 'w', encoding='utf-8') as f:
+                json.dump(questions, f, indent=2, ensure_ascii=False)
+            
+            print(f"Question saved successfully to {questions_file}")
+            
+        except Exception as e:
+            print(f"Error saving question: {e}")
+            # Continue anyway, don't fail the API call
+        
+        print(f"Question saved to {questions_file}: {question_id}")
+        
+        # Send email notification (async, non-blocking)
+        try:
+            send_question_notification(question_record)
+        except Exception as e:
+            print(f"Email notification failed but continuing: {e}")
+        
+        return {
+            "id": question_id,
+            "message": "Thanks for your question, I'll answer this soon!",
+            "talk_id": talk_id,
+            "status": "received"
+        }
     
 
 

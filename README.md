@@ -48,12 +48,18 @@ A playful REST API that serves as a personal introduction
    pip install -r requirements.txt
    ```
 
-4. **Run the application**:
+4. **Configure email notifications** (optional):
+   ```bash
+   cp .env.example .env
+   # Edit .env with your SendGrid API key and notification email
+   ```
+
+5. **Run the application**:
    ```bash
    uvicorn app.main:app --reload
    ```
 
-5. **Open your browser** and navigate to:
+6. **Open your browser** and navigate to:
    - **API Documentation**: http://127.0.0.1:8000/docs
    - **Landing Page**: http://127.0.0.1:8000
 
@@ -67,6 +73,7 @@ A playful REST API that serves as a personal introduction
 
 ### Talks Endpoints
 - `GET /talks` - List talks with optional year filtering
+- `POST /talks/{talk_id}/questions` - Submit a question about a specific talk
 
 ### Projects Endpoints
 - `GET /projects` - List all projects
@@ -101,6 +108,17 @@ curl "http://127.0.0.1:8000/projects"
 ### Health Check
 ```bash
 curl "http://127.0.0.1:8000/health"
+```
+
+### Submit Question for a Talk
+```bash
+curl -X POST "https://api.m365princess.com/talks/deploy-on-fridays-bonanni-2026/questions" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Alex Developer",
+    "email": "alex@example.com", 
+    "question": "How do you handle CI/CD rollbacks when deployments fail on Fridays?"
+  }'
 ```
 
 ## Running Tests
