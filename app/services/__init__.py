@@ -50,8 +50,8 @@ def send_question_notification(question_data: dict) -> None:
         
         # Create and send email
         message = Mail(
-            from_email='noreply@m365princess.com',
-            to_emails=notification_email,
+            from_email=notification_email,  # Use your email as sender
+            to_emails=notification_email,   # Send to yourself
             subject=subject,
             html_content=html_content
         )
@@ -59,12 +59,16 @@ def send_question_notification(question_data: dict) -> None:
         sg = SendGridAPIClient(api_key=sendgrid_api_key)
         response = sg.send(message)
         
-        print(f"Email notification sent successfully (status: {response.status_code})")
+        print(f"Email sent successfully! Status code: {response.status_code}")
+        print(f"Email sent from: {notification_email} to: {notification_email}")
         
-    except ImportError:
-        print("SendGrid not installed - email notifications disabled")
+    except ImportError as e:
+        print(f"SendGrid not installed - email notifications disabled: {e}")
     except Exception as e:
         print(f"Failed to send email notification: {e}")
+        print(f"Error type: {type(e).__name__}")
+        import traceback
+        print(f"Full traceback: {traceback.format_exc()}")
         # Don't re-raise - email failure shouldn't break the API
 
 
