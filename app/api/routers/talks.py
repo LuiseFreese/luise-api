@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query, HTTPException, Path
-from typing import Optional
+from typing import Optional, List
 
 from app.models import Talk, TalksList, TalkQuestion, TalkQuestionResponse
 from app.services import talks_service, create_error_response, create_error_response
@@ -44,3 +44,41 @@ async def submit_talk_question(
         raise HTTPException(status_code=404, detail=error.model_dump())
     
     return TalkQuestionResponse(**result)
+
+
+@router.get("/{talk_id}/questions", summary="Get questions for talk (debug)", operation_id="get_talk_questions")
+async def get_talk_questions(
+    talk_id: str = Path(..., description="The ID of the talk to get questions for")
+):
+    """
+    Debug endpoint to view submitted questions for a talk.
+    """
+    import json
+    import os
+    from pathlib import Path
+    
+    # Get questions file path
+    questions_file = os.path.join(os.path.dirname(__file__), "..", "..", "data", "questions.json")
+    questions_file = os.path.abspath(questions_file)
+    
+    debug_info = {
+        "questions_file_path": questions_file,
+        "file_exists": os.path.exists(questions_file),
+        "questions": []
+    }
+    
+    if os.path.exists(questions_file):
+        try:
+            with open(questions_file, 'r', encoding='utf-8') as f:
+                all_questions = json.load(f)
+                
+            # Filter questions for this talk
+            talk_questions = [q for q in all_questions if q.get('talk_id') == talk_id]
+            debug_info["questions"] = talk_questions
+            debug_info["total_questions"] = len(all_questions)
+            debug_info["talk_questions"] = len(talk_questions)
+            
+        except Exception as e:
+            debug_info["error"] = str(e)
+    
+    return debug_info

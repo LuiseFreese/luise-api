@@ -3,7 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routers import profile, skills, talks, projects
+from app.api.routers import profile, skills, talks, projects, debug
 
 # OpenAPI configuration
 app = FastAPI(
@@ -71,6 +71,7 @@ app.include_router(profile.router)
 app.include_router(skills.router)
 app.include_router(talks.router)
 app.include_router(projects.router)
+app.include_router(debug.router)
 
 
 @app.get("/", include_in_schema=False)

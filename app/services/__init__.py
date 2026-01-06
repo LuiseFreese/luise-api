@@ -19,7 +19,7 @@ def send_question_notification(question_data: dict) -> None:
         notification_email = os.environ.get('NOTIFICATION_EMAIL')
         
         if not sendgrid_api_key or not notification_email:
-            print("Email notification skipped: Missing SENDGRID_API_KEY or NOTIFICATION_EMAIL environment variables")
+            print(f"Email notification skipped: SENDGRID_API_KEY={'set' if sendgrid_api_key else 'missing'}, NOTIFICATION_EMAIL={'set' if notification_email else 'missing'}")
             return
             
         from sendgrid import SendGridAPIClient
@@ -271,6 +271,9 @@ class TalksService:
         questions_file = os.path.abspath(questions_file)
         
         print(f"Attempting to save question to: {questions_file}")
+        print(f"Directory exists: {os.path.exists(os.path.dirname(questions_file))}")
+        print(f"File exists: {os.path.exists(questions_file)}")
+        print(f"Directory is writable: {os.access(os.path.dirname(questions_file), os.W_OK) if os.path.exists(os.path.dirname(questions_file)) else 'N/A'}")
         
         try:
             # Load existing questions or create empty list

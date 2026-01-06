@@ -25,5 +25,14 @@
     "question": "Testing the new email notification feature - does it work?",
     "submitted_at": "2026-01-06T10:59:26.525690",
     "status": "received"
+  },
+  {
+    "id": "q_b31ce126",
+    "talk_id": "deploy-on-fridays-bonanni-2026",
+    "name": "Production Test",
+    "email": "prodtest@example.com",
+    "question": "Testing if local version still works with new email code.",
+    "submitted_at": "2026-01-06T11:33:55.676928",
+    "status": "received"
   }
 ]
