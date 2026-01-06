@@ -31,7 +31,7 @@ async def submit_talk_question(
     The question will be reviewed and may be featured in future content or Q&A sessions.
     
     - **talk_id**: The unique identifier for the talk
-    - **question**: Your question details including name, email, and question text
+    - **question**: Your question details including name, contact email, and question text
     """
     result = talks_service.submit_question(talk_id, question.model_dump())
     

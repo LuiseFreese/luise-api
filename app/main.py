@@ -27,7 +27,7 @@ of FastAPI best practices.
 - Proper HTTP status codes and semantics
 - Interactive documentation with examples
     """,
-    version="1.0.1",  # Email notifications enabled
+    version="1.0.0",
     contact={
         "name": "Luise",
         "url": "https://github.com/example/luise-api",
