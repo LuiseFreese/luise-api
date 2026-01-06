@@ -18,13 +18,13 @@ async def check_environment():
         "paths": {
             "current_dir": str(Path.cwd()),
             "file_dir": str(Path(__file__).parent),
-            "data_dir": str(Path(__file__).parent.parent / "data"),
-            "questions_file": str(Path(__file__).parent.parent / "data" / "questions.json"),
+            "data_dir": str(Path(__file__).parent.parent.parent / "data"),
+            "questions_file": str(Path(__file__).parent.parent.parent / "data" / "questions.json"),
         },
         "file_system": {
-            "data_dir_exists": (Path(__file__).parent.parent / "data").exists(),
-            "questions_file_exists": (Path(__file__).parent.parent / "data" / "questions.json").exists(),
-            "data_dir_writable": os.access(str(Path(__file__).parent.parent / "data"), os.W_OK) if (Path(__file__).parent.parent / "data").exists() else False,
+            "data_dir_exists": (Path(__file__).parent.parent.parent / "data").exists(),
+            "questions_file_exists": (Path(__file__).parent.parent.parent / "data" / "questions.json").exists(),
+            "data_dir_writable": os.access(str(Path(__file__).parent.parent.parent / "data"), os.W_OK) if (Path(__file__).parent.parent.parent / "data").exists() else False,
         }
     }
 
@@ -36,7 +36,7 @@ async def check_file_contents():
     """
     import json
     
-    questions_file = Path(__file__).parent.parent / "data" / "questions.json"
+    questions_file = Path(__file__).parent.parent.parent / "data" / "questions.json"
     
     result = {
         "file_path": str(questions_file),

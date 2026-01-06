@@ -58,7 +58,7 @@ async def get_talk_questions(
     from pathlib import Path
     
     # Get questions file path
-    questions_file = os.path.join(os.path.dirname(__file__), "..", "..", "data", "questions.json")
+    questions_file = os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "questions.json")
     questions_file = os.path.abspath(questions_file)
     
     debug_info = {
