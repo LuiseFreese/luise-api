@@ -48,18 +48,12 @@ A playful REST API that serves as a personal introduction
    pip install -r requirements.txt
    ```
 
-4. **Configure email notifications** (optional):
-   ```bash
-   cp .env.example .env
-   # Edit .env with your SendGrid API key and notification email
-   ```
-
-5. **Run the application**:
+4. **Run the application**:
    ```bash
    uvicorn app.main:app --reload
    ```
 
-6. **Open your browser** and navigate to:
+5. **Open your browser** and navigate to:
    - **API Documentation**: http://127.0.0.1:8000/docs
    - **Landing Page**: http://127.0.0.1:8000
 

@@ -11,67 +11,6 @@ from app.models import (
 )
 
 
-def send_question_notification(question_data: dict) -> None:
-    """Send email notification for new question submission."""
-    try:
-        # Only send if SendGrid API key is configured
-        sendgrid_api_key = os.environ.get('SENDGRID_API_KEY')
-        notification_email = os.environ.get('NOTIFICATION_EMAIL')
-        
-        if not sendgrid_api_key or not notification_email:
-            print(f"Email notification skipped: SENDGRID_API_KEY={'set' if sendgrid_api_key else 'missing'}, NOTIFICATION_EMAIL={'set' if notification_email else 'missing'}")
-            return
-            
-        from sendgrid import SendGridAPIClient
-        from sendgrid.helpers.mail import Mail
-        
-        # Create email content
-        subject = f"New Question: {question_data['talk_id']}"
-        
-        html_content = f"""
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #333; border-bottom: 2px solid #ff69b4;">New Question Submitted</h2>
-            
-            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <p><strong>Talk:</strong> {question_data['talk_id']}</p>
-                <p><strong>Question ID:</strong> {question_data['id']}</p>
-                <p><strong>From:</strong> {question_data['name']} ({question_data['email']})</p>
-                <p><strong>Submitted:</strong> {question_data['submitted_at']}</p>
-            </div>
-            
-            <div style="background: white; padding: 20px; border-left: 4px solid #ff69b4; margin: 20px 0;">
-                <h3 style="margin-top: 0;">Question:</h3>
-                <p style="line-height: 1.6;">{question_data['question']}</p>
-            </div>
-            
-            <p style="color: #666; font-size: 12px;">This notification was sent from your m365princess.com API.</p>
-        </div>
-        """
-        
-        # Create and send email
-        message = Mail(
-            from_email=notification_email,  # Use your email as sender
-            to_emails=notification_email,   # Send to yourself
-            subject=subject,
-            html_content=html_content
-        )
-        
-        sg = SendGridAPIClient(api_key=sendgrid_api_key)
-        response = sg.send(message)
-        
-        print(f"Email sent successfully! Status code: {response.status_code}")
-        print(f"Email sent from: {notification_email} to: {notification_email}")
-        
-    except ImportError as e:
-        print(f"SendGrid not installed - email notifications disabled: {e}")
-    except Exception as e:
-        print(f"Failed to send email notification: {e}")
-        print(f"Error type: {type(e).__name__}")
-        import traceback
-        print(f"Full traceback: {traceback.format_exc()}")
-        # Don't re-raise - email failure shouldn't break the API
-
-
 class DataService:
     """Service for loading and managing static data."""
     
@@ -305,12 +244,6 @@ class TalksService:
             # Continue anyway, don't fail the API call
         
         print(f"Question saved to {questions_file}: {question_id}")
-        
-        # Send email notification (async, non-blocking)
-        try:
-            send_question_notification(question_record)
-        except Exception as e:
-            print(f"Email notification failed but continuing: {e}")
         
         return {
             "id": question_id,

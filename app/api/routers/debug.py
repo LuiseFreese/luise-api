@@ -11,10 +11,6 @@ async def check_environment():
     Debug endpoint to check environment variables and system info.
     """
     return {
-        "environment_variables": {
-            "SENDGRID_API_KEY": "set" if os.environ.get('SENDGRID_API_KEY') else "missing",
-            "NOTIFICATION_EMAIL": "set" if os.environ.get('NOTIFICATION_EMAIL') else "missing",
-        },
         "paths": {
             "current_dir": str(Path.cwd()),
             "file_dir": str(Path(__file__).parent),
@@ -55,33 +51,3 @@ async def check_file_contents():
             result["error"] = str(e)
     
     return result
-
-
-@router.post("/test-email", summary="Test email sending", operation_id="test_email_sending")
-async def test_email_sending():
-    """
-    Debug endpoint to test email sending functionality.
-    """
-    from app.services import send_question_notification
-    
-    test_question_data = {
-        "id": "test_email_123",
-        "talk_id": "test-talk",
-        "name": "Test Email User",
-        "email": "test@example.com",
-        "question": "This is a test email to verify email functionality is working.",
-        "submitted_at": "2026-01-06T15:00:00.000000"
-    }
-    
-    try:
-        send_question_notification(test_question_data)
-        return {
-            "success": True,
-            "message": "Email test triggered, check server logs for details"
-        }
-    except Exception as e:
-        return {
-            "success": False,
-            "error": str(e),
-            "message": "Email test failed"
-        }
