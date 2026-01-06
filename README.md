@@ -17,7 +17,7 @@ A playful REST API that serves as a personal introduction
 - **Uvicorn** - ASGI server for production-ready deployment
 - **Pytest** - Comprehensive testing suite
 
-## 🏃Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -115,6 +115,11 @@ curl -X POST "https://api.m365princess.com/talks/deploy-on-fridays-bonanni-2026/
   }'
 ```
 
+### View Submitted Questions
+You can view all submitted questions at:
+- **Production**: https://api.m365princess.com/debug/file-contents
+- **Local**: http://127.0.0.1:8000/debug/file-contents
+
 ## Running Tests
 
 Run the test suite to ensure everything works correctly:
@@ -131,7 +136,7 @@ python -m pytest tests/test_api.py -v
 ```
 
 
-## 🔍 Architecture Highlights
+## Architecture Highlights
 
 ### Clean Architecture Patterns
 - **Separation of Concerns**: Models, services, and routers are cleanly separated
@@ -148,7 +153,7 @@ python -m pytest tests/test_api.py -v
 - **RESTful**: Follows REST conventions and best practices
 - **Filtered Queries**: Support for domain/year filtering where appropriate
 
-## 🚀 Deployment
+## Deployment
 
 For production deployment, consider:
 
@@ -161,7 +166,7 @@ gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-## 📝 Development Notes
+## Development Notes
 
 ### Code Style
 - Type hints throughout the codebase
@@ -177,7 +182,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000
 - **Data Validation**: Leverages Pydantic v2 for comprehensive request/response validation
 - **Modern Python**: Uses latest Pydantic patterns and type hints
 
-## 🤝 Contributing
+## Contributing
 
 This is a demo project, but if you'd like to suggest improvements:
 
@@ -186,11 +191,6 @@ This is a demo project, but if you'd like to suggest improvements:
 3. Make your changes
 4. Add or update tests
 5. Submit a pull request
-
-## 📄 License
-
-MIT License - feel free to use this code as inspiration for your own projects!
-
 ---
 
 **Built with ❤️ **
