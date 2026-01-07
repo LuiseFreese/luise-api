@@ -34,5 +34,14 @@
     "question": "Testing if the production version works correctly.",
     "submitted_at": "2026-01-06T11:33:55.676928",
     "status": "received"
+  },
+  {
+    "id": "q_9db211a6",
+    "talk_id": "deploy-on-fridays-bonanni-2026",
+    "name": "MCP User",
+    "email": "user@example.com",
+    "question": "How does one loose the friday freeze fear?",
+    "submitted_at": "2026-01-07T18:38:21.662827",
+    "status": "received"
   }
 ]

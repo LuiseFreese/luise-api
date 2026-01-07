@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "luise-profile": {
+      "command": "python",
+      "args": ["C:\\Users\\luise.fixed\\OneDrive\\dev\\luise-api\\mcp_server.py"],
+      "env": {
+        "LUISE_API_URL": "http://localhost:8000"
+      }
+    }
+  }
+}

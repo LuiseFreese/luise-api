@@ -30,6 +30,20 @@
 			"command": "python start.py",
 			"isBackground": true,
 			"group": "build"
+		},
+		{
+			"label": "Start MCP Inspector",
+			"type": "shell",
+			"command": "npx @modelcontextprotocol/inspector \"C:\\Users\\luise.fixed\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe\" mcp_server.py",
+			"isBackground": true,
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"problemMatcher": []
 		}
 	]
 }
