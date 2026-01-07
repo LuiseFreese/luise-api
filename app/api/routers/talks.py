@@ -1,27 +1,37 @@
-from fastapi import APIRouter, Query, HTTPException, Path
+from fastapi import APIRouter, Query, HTTPException, Path, Request
 from typing import Optional, List
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 
 from app.models import Talk, TalksList, TalkQuestion, TalkQuestionResponse
 from app.services import talks_service, create_error_response, create_error_response
 
+# Rate limiter instance
+limiter = Limiter(key_func=get_remote_address)
 router = APIRouter(prefix="/talks", tags=["Talks"])
 
 
 @router.get("", response_model=TalksList, summary="Get all talks", operation_id="list_talks")
+@limiter.limit("30/minute")  # Allow 30 requests per minute
 async def get_talks(
+    request: Request,
     year: Optional[int] = Query(None, description="Filter talks by year")
 ):
     """
     Get a list of talks, optionally filtered by year.
     
     - **year**: Filter talks by the year they were given
+    
+    **Rate limit:** 30 requests per minute per IP address
     """
     talks = talks_service.get_talks(year=year)
     return TalksList(talks=talks, total=len(talks))
 
 
 @router.post("/{talk_id}/questions", response_model=TalkQuestionResponse, summary="Submit question for talk", operation_id="submit_talk_question")
+@limiter.limit("3/minute")  # Strict rate limit for question submission
 async def submit_talk_question(
+    request: Request,
     talk_id: str = Path(..., description="The ID of the talk to ask about"),
     question: TalkQuestion = ...
 ):
@@ -32,6 +42,8 @@ async def submit_talk_question(
     
     - **talk_id**: The unique identifier for the talk
     - **question**: Your question details including name, contact email, and question text
+    
+    **Rate limit:** 3 questions per minute per IP address to prevent spam
     """
     result = talks_service.submit_question(talk_id, question.model_dump())
     

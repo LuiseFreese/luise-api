@@ -56,7 +56,7 @@ async def make_api_request(endpoint: str, params: Optional[Dict[str, Any]] = Non
 TOOLS: List[Tool] = [
     Tool(
         name="get_profile",
-        description="Get Luise's profile information with optional mode and unlock parameters",
+        description="Get ONLY Luise's actual profile data from her API. Returns exact database content - do not add external information.",
         inputSchema={
             "type": "object",
             "properties": {
@@ -87,7 +87,7 @@ TOOLS: List[Tool] = [
     ),
     Tool(
         name="search_skills",
-        description="Search Luise's technical skills and expertise",
+        description="Search ONLY the skills listed in Luise's database. Returns exact skill data without additions.",
         inputSchema={
             "type": "object", 
             "properties": {
@@ -100,7 +100,7 @@ TOOLS: List[Tool] = [
     ),
     Tool(
         name="get_talks",
-        description="Get information about Luise's speaking engagements",
+        description="Get ONLY the speaking engagements that exist in Luise's database. Returns actual talk data only - do not add, invent, or assume additional talks.",
         inputSchema={
             "type": "object",
             "properties": {
@@ -217,10 +217,15 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> CallToolResult:
             if not talks_data or 'talks' not in talks_data:
                 return CallToolResult(content=[TextContent(type="text", text="No talks data available.")])
                 
-            talks_text = "🎤 **Speaking Engagements**"
+            talks_text = "🎤 **Speaking Engagements FROM LUISE'S API DATABASE**"
             if year:
                 talks_text += f" ({year})"
             talks_text += ":\n\n"
+            
+            if not talks_data['talks']:
+                talks_text += f"⚠️ **No talks found in database for {year if year else 'any year'}.**\n"
+                talks_text += "**This data comes directly from the API - no additional talks exist.**\n"
+                return CallToolResult(content=[TextContent(type="text", text=talks_text)])
             
             for talk in talks_data['talks']:
                 talks_text += f"**{talk.get('title', 'Untitled Talk')}**\n"
@@ -234,6 +239,8 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> CallToolResult:
                 if 'id' in talk:
                     talks_text += f"*Use submit_question tool with talk_id: {talk['id']} to ask questions*\n"
                 talks_text += "\n"
+            
+            talks_text += "\n---\n**📊 Data Source:** Live API at api.m365princess.com\n**Total Results:** " + str(len(talks_data['talks'])) + " talk(s)\n"
             
             return CallToolResult(content=[TextContent(type="text", text=talks_text)])
             

@@ -119,6 +119,33 @@ curl -X POST "https://api.m365princess.com/talks/deploy-on-fridays-bonanni-2026/
 You can view all submitted questions at:
 - **Production**: https://api.m365princess.com/debug/file-contents
 
+## Rate Limiting
+
+The API includes rate limiting to prevent abuse and ensure fair usage:
+
+### Rate Limits by Endpoint
+
+- **Profile endpoints** (`/profile`): 60 requests/minute per IP
+- **Skills/Talks/Projects endpoints**: 30 requests/minute per IP  
+- **Question submission** (`POST /talks/{id}/questions`): **3 requests/minute per IP**
+- **All other endpoints**: 30 requests/minute per IP
+
+### Rate Limit Headers
+
+When you make requests, you'll receive these headers:
+- `X-RateLimit-Limit`: Total requests allowed in time window
+- `X-RateLimit-Remaining`: Remaining requests in current window  
+- `X-RateLimit-Reset`: UTC timestamp when limit resets
+
+### Rate Limit Exceeded Response
+
+When you exceed limits, you'll get a `429 Too Many Requests` response:
+```json
+{
+  "error": "Rate limit exceeded: 3 per 1 minute"
+}
+```
+
 ## MCP Server
 
 This repository includes an MCP (Model Context Protocol) server that exposes the API endpoints as AI tools.
@@ -183,6 +210,66 @@ Add to your Claude Desktop config:
 ```
 
 🚀 **That's it!** Share this repo and users can run your MCP server in under 2 minutes.
+
+## VS Code Copilot Integration
+
+Your MCP server is pre-configured to work with VS Code Copilot! The `.vscode/mcp.json` file automatically exposes your 6 MCP tools to Copilot.
+
+### Quick Start
+
+1. **Start both servers:**
+   - Run task: `Run API Server` (Ctrl+Shift+P → Tasks: Run Task)
+   - Run task: `Start MCP Inspector` (optional, for testing)
+
+2. **Open Copilot Chat:**
+   - Press `Ctrl+Shift+I` or click the Copilot chat icon
+
+3. **Try these example prompts:**
+
+```
+@workspace What are Luise's AI and development skills?
+```
+
+```
+@workspace Show me Luise's conference talks from 2026
+```
+
+```  
+@workspace Get a motivational quote about Python development
+```
+
+```
+@workspace What projects has Luise worked on recently?
+```
+
+```
+@workspace Tell me about Luise's professional profile
+```
+
+### Advanced Copilot Queries
+
+```
+@workspace Use Luise's profile tools to help me write a speaker bio for her
+```
+
+```  
+@workspace Based on Luise's skills, suggest what technologies she could mentor someone on
+```
+
+```
+@workspace Compare Luise's 2026 talks and suggest follow-up topics
+```
+
+### Available Tools in Copilot
+
+- **get_profile** - Professional profile information
+- **get_quote** - Inspirational quotes by topic
+- **search_skills** - Skills filtered by domain
+- **get_talks** - Conference talks and presentations
+- **get_projects** - Project information and details
+- **submit_question** - Submit questions for talks
+
+Copilot will automatically call these tools when relevant to answer your questions!
 - **Local**: http://127.0.0.1:8000/debug/file-contents
 
 ## Running Tests
