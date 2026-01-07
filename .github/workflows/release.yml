@@ -1,0 +1,49 @@
+name: Build and Release MCP Server
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        
+    runs-on: ${{ matrix.os }}
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller mcp httpx
+        
+    - name: Build executable
+      run: |
+        pyinstaller --onefile --name luise-profile-mcp-${{ runner.os }} mcp_server.py
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: luise-profile-mcp-${{ runner.os }}
+        path: dist/luise-profile-mcp-${{ runner.os }}*
+        
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          */luise-profile-mcp-*

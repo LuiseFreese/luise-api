@@ -1,0 +1,20 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy MCP server
+COPY mcp_server.py .
+COPY app/ app/
+
+# Create non-root user
+RUN groupadd -r mcpuser && useradd -r -g mcpuser mcpuser
+USER mcpuser
+
+EXPOSE 8000
+
+# Default to stdio transport for MCP
+CMD ["python", "mcp_server.py"]
