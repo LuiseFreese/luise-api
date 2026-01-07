@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "luise-profile-mcp"
+version = "1.0.0"
+description = "MCP server providing access to Luise's professional profile, skills, talks, and projects"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    {name = "Luise Freese", email = "luise@m365princess.com"},
+]
+keywords = ["mcp", "model-context-protocol", "ai", "profile"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/luisefreese/luise-profile-mcp"
+Repository = "https://github.com/luisefreese/luise-profile-mcp"
+Issues = "https://github.com/luisefreese/luise-profile-mcp/issues"
+
+[project.scripts]
+luise-profile-mcp = "luise_profile_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["luise_profile_mcp"]

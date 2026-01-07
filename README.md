@@ -118,6 +118,71 @@ curl -X POST "https://api.m365princess.com/talks/deploy-on-fridays-bonanni-2026/
 ### View Submitted Questions
 You can view all submitted questions at:
 - **Production**: https://api.m365princess.com/debug/file-contents
+
+## MCP Server
+
+This repository includes an MCP (Model Context Protocol) server that exposes the API endpoints as AI tools.
+
+### Quick MCP Setup
+
+1. **Clone and install:**
+```bash
+git clone <your-repo-url>
+cd luise-api
+pip install -r requirements-mcp.txt
+```
+
+2. **Start the API server:**
+```bash
+python start.py
+```
+
+3. **Test MCP server:**
+```bash
+# In another terminal
+python mcp_server.py
+```
+
+### Available MCP Tools
+
+- `get_profile` - Get professional profile information
+- `get_quote` - Get inspirational quotes on various topics  
+- `search_skills` - Search skills by domain
+- `get_talks` - Get conference talks and presentations
+- `get_projects` - Get project information
+- `submit_question` - Submit questions for talks
+
+### VS Code Integration
+
+Add to your VS Code `.vscode/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "luise-profile": {
+      "command": "python",
+      "args": ["mcp_server.py"]
+    }
+  }
+}
+```
+
+### Claude Desktop Integration
+
+Add to your Claude Desktop config:
+
+```json
+{
+  "mcpServers": {
+    "luise-profile": {
+      "command": "python",
+      "args": ["/path/to/mcp_server.py"]
+    }
+  }
+}
+```
+
+🚀 **That's it!** Share this repo and users can run your MCP server in under 2 minutes.
 - **Local**: http://127.0.0.1:8000/debug/file-contents
 
 ## Running Tests

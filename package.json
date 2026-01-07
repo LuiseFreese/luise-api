@@ -1,0 +1,37 @@
+{
+  "name": "luise-profile-mcp",
+  "displayName": "Luise Profile MCP Server",
+  "description": "MCP server providing access to Luise's professional profile, skills, talks, and projects",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": ["Other"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Luise Profile MCP",
+      "properties": {
+        "luiseProfileMcp.apiEndpoint": {
+          "type": "string",
+          "default": "https://api.m365princess.com",
+          "description": "API endpoint for the Luise Profile service"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.0.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "dependencies": {
+    "mcp": "^1.0.0",
+    "httpx": "^1.0.0"
+  }
+}
