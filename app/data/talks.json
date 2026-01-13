@@ -1,5 +1,21 @@
 [
   {
+    "id": "poc-prison-case-berlin-2026",
+    "title": "POC Prison - Why agentic systems never escape the lab and how to fix that in 90 days",
+    "description": "Most organizations experimenting with agentic AI aren't blocked by models, frameworks, or orchestration. They're blocked by something far more basic: the everyday realities of how enterprises actually work. Agents look brilliant in controlled demos, but the moment you try to plug them into real systems (legacy data, governance, identity, compliance, and unclear ownership), they collapse into the same pile of abandoned POCs as everything else. This talk cuts through the hype and gets straight to the ugly truth: why agentic systems end up as flashy prototypes instead of production tools, how Excel-based \"data estates\" quietly choke autonomy before it even starts, why most so-called \"AI use cases\" are still rule-based automation wearing an AI sticker, and how to build the minimal delivery backbone needed for any intelligent agent to run safely in a real enterprise. This isn't yet another vision talk, but the reality check most teams never get: the engineering and organizational work required to move agents from the lab into the world where the constraints are real, and the stakes are even higher.",
+    "year": 2026,
+    "venue": "CASE Conference, Berlin",
+    "topics": [
+      "AI Agents",
+      "Enterprise Architecture",
+      "Production Deployment",
+      "Legacy Systems",
+      "Governance",
+      "AI Strategy",
+      "Enterprise Reality"
+    ]
+  },
+  {
     "id": "deploy-on-fridays-bonanni-2026",
     "title": "Let's deploy on Fridays!",
     "description": "Your team sticks to the Friday-freeze-policy? This is super common, but also it gives a certain smell. A smell of low delivery confidence and of low trust in your processes around Testing, QA and rollback. This session won't make you suddenly trust your bubblegum-and-duct-taped delivery pipeline but aims at stripping away the superstition and look at what's really broken when teams are too scared to ship. We'll dig into the real indicators of healthy delivery, like deployment frequency, lead time, change failure rate, recovery time, and why they matter more than any velocity chart ever will.",
