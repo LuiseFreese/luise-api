@@ -122,15 +122,15 @@ class TalkQuestion(BaseModel):
     model_config = ConfigDict(
         json_schema_extra={
             "example": {
-                "name": "Alex Developer",
-                "email": "alex@example.com",
+                "name": "Your name",
+                "linkedin_profile": "yourhandle",
                 "question": "How do you handle CI/CD rollbacks when deployments fail on Fridays?"
             }
         }
     )
     
     name: str
-    email: str = Field(..., description="Email address for follow-up")
+    linkedin_profile: str = Field(..., description="Your LinkedIn username (e.g., 'yourhandle' for linkedin.com/in/yourhandle)")
     question: str = Field(..., min_length=10, description="Your question about this talk")
 
 
