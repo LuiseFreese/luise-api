@@ -1,0 +1,13 @@
+{
+  "mcp.servers": {
+    "luise-api": {
+      "command": "${workspaceFolder}/venv/Scripts/python.exe",
+      "args": ["${workspaceFolder}/mcp_server.py"],
+      "env": {
+        "API_BASE_URL": "https://api.m365princess.com",
+        "LOG_LEVEL": "DEBUG"
+      }
+    }
+  },
+  "python.defaultInterpreterPath": "./venv/Scripts/python.exe"
+}
