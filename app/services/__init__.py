@@ -203,7 +203,7 @@ class TalksService:
             "id": question_id,
             "talk_id": talk_id,
             "name": question_data["name"],
-            "email": question_data["email"], 
+            "linkedin_profile": question_data["linkedin_profile"], 
             "question": question_data["question"],
             "submitted_at": timestamp,
             "status": "received"

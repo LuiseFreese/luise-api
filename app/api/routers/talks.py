@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Query, HTTPException, Path, Request
+from fastapi import APIRouter, Query, HTTPException, Path, Request, Body
 from typing import Optional, List
 from slowapi import Limiter
 from slowapi.util import get_remote_address
@@ -33,7 +33,7 @@ async def get_talks(
 async def submit_talk_question(
     request: Request,
     talk_id: str = Path(..., description="The ID of the talk to ask about"),
-    question: TalkQuestion = ...
+    question: TalkQuestion = Body(...)
 ):
     """
     Submit a question about a specific talk.
